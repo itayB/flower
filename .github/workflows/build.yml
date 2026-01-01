@@ -26,7 +26,7 @@ jobs:
         # 'uv sync' installs pyproject.toml base + selected extras
         # 'uv pip install' overrides matrix-specific versions
         run: |
-          uv sync --extra dev --extra test
+          uv sync --extra dev --extra fastapi --extra test
           uv pip install "celery==${{ matrix.celery-version }}" \
                          "tornado==${{ matrix.tornado-version }}"
 

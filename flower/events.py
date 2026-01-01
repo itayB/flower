@@ -236,7 +236,15 @@ class Events(threading.Thread):
     def on_enable_events(self):
         # Periodically enable events for workers
         # launched after flower
-        self.io_loop.run_in_executor(None, self.capp.control.enable_events)
+        fut = self.io_loop.run_in_executor(None, self.capp.control.enable_events)
+
+        def _swallow_exception(f):
+            try:
+                f.result()
+            except Exception as exc:  # pragma: no cover
+                logger.debug("Failed to enable events: %s", exc)
+
+        fut.add_done_callback(_swallow_exception)
 
     def on_event(self, event):
         # Call EventsState.event in ioloop thread to avoid synchronization

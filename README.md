@@ -1,7 +1,7 @@
 # Flower
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/itayb/flower.svg)
-[![Build Status](https://github.com/itayB/flower/workflows/Build/badge.svg)](https://github.com/itayB/flower/actions)
+[![Build Status](https://github.com/itayB/flower/actions/workflows/Build.yml/badge.svg?branch=master)](https://github.com/itayB/flower/actions?query=branch%3Amaster)
 
 This is a fork of the original great [Flower](https://github.com/mher/flower) project that with the following changes:
 
