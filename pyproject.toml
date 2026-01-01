@@ -45,11 +45,17 @@ flower = "flower.command:flower"
 
 [project.scripts]
 # (no console_scripts defined in setup.py)
+flower-fastapi = "flower.fastapi:main"
 
 [project.optional-dependencies]
 dev = [
   "redis>=4.3.6",
   "pylint",
+]
+
+fastapi = [
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
 ]
 
 test = [
