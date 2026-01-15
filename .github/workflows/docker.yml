@@ -18,10 +18,10 @@ jobs:
   docker:
     runs-on: ubuntu-24.04
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6.0.1
 
     - name: Set up Node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         node-version: 20
 
@@ -31,7 +31,7 @@ jobs:
         python-version: '3.12'
 
     - name: Set up uv
-      uses: astral-sh/setup-uv@v5
+      uses: astral-sh/setup-uv@v7
       with:
         enable-cache: true
 
@@ -68,7 +68,7 @@ jobs:
 
     - name: Sync Docker Hub repository overview
       if: github.event_name != 'pull_request'
-      uses: peter-evans/dockerhub-description@v4
+      uses: peter-evans/dockerhub-description@v5
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
